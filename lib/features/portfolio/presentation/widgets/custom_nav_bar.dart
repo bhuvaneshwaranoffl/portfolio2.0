@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_text_styles.dart';
 
@@ -22,7 +23,7 @@ class CustomNavBar extends StatelessWidget {
     bool isMobile = MediaQuery.of(context).size.width < 800;
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 40.w, vertical: 20.h),
       color: AppColors.background.withOpacity(0.9), // Glass effect base
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,7 +37,7 @@ class CustomNavBar extends StatelessWidget {
           ),
           if (isMobile)
             IconButton(
-              icon: const Icon(Icons.menu, color: AppColors.textPrimary),
+              icon: Icon(Icons.menu, color: AppColors.textPrimary, size: 30.sp),
               onPressed: () {
                 Scaffold.of(context).openEndDrawer();
               },
@@ -45,7 +46,7 @@ class CustomNavBar extends StatelessWidget {
             Row(
               children: sectionKeys.keys.map((String title) {
                 return Padding(
-                  padding: const EdgeInsets.only(left: 30),
+                  padding: EdgeInsets.only(left: 30.w),
                   child: TextButton(
                     onPressed: () => _scrollTo(context, sectionKeys[title]!),
                     child: Text(

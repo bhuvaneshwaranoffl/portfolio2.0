@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+  import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_text_styles.dart';
-import '../../../domain/entities/experience.dart';
+import 'package:portfolio/features/portfolio/domain/entities/experience.dart';
 
 class ExperienceSection extends StatelessWidget {
   final List<Experience> experiences;
@@ -12,7 +13,7 @@ class ExperienceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 40),
+      padding: EdgeInsets.symmetric(vertical: 100.h, horizontal: 40.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,7 +21,7 @@ class ExperienceSection extends StatelessWidget {
             'Experience',
             style: AppTextStyles.headingMedium.copyWith(color: AppColors.primary),
           ).animate().fade().slideY(),
-          const SizedBox(height: 60),
+          SizedBox(height: 60.h),
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -42,8 +43,8 @@ class ExperienceSection extends StatelessWidget {
           Column(
             children: [
               Container(
-                width: 16,
-                height: 16,
+                width: 16.r,
+                height: 16.r,
                 decoration: const BoxDecoration(
                   color: AppColors.secondary,
                   shape: BoxShape.circle,
@@ -52,37 +53,37 @@ class ExperienceSection extends StatelessWidget {
               if (!isLast)
                 Expanded(
                   child: Container(
-                    width: 2,
+                    width: 2.w,
                     color: AppColors.borderColor,
                   ).animate().fadeIn(delay: 500.ms),
                 ),
             ],
           ),
-          const SizedBox(width: 30),
+          SizedBox(width: 30.w),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 60),
+              padding: EdgeInsets.only(bottom: 60.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(exp.role, style: AppTextStyles.headingSmall),
-                  const SizedBox(height: 4),
+                  SizedBox(height: 4.h),
                   Row(
                     children: [
                       Text(exp.company, style: AppTextStyles.button.copyWith(color: AppColors.primary)),
-                      const SizedBox(width: 10),
+                      SizedBox(width: 10.w),
                       Text('• ${exp.period}', style: AppTextStyles.caption),
                     ],
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   Text(exp.description, style: AppTextStyles.bodyLarge),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   ...exp.achievements.map((ach) => Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
+                        padding: EdgeInsets.only(bottom: 8.h),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('▹ ', style: TextStyle(color: AppColors.secondary, fontSize: 16)),
+                            Text('▹ ', style: TextStyle(color: AppColors.secondary, fontSize: 16.sp)),
                             Expanded(child: Text(ach, style: AppTextStyles.bodyMedium)),
                           ],
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_text_styles.dart';
 
@@ -12,18 +13,18 @@ class HeroSection extends StatelessWidget {
 
     return Container(
       constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height),
-      padding: EdgeInsets.symmetric(horizontal: isMobile ? 20 : 40, vertical: 100),
+      padding: EdgeInsets.symmetric(horizontal: isMobile ? 20.w : 40.w, vertical: 100.h),
       alignment: Alignment.center,
       child: Stack(
         alignment: Alignment.center,
         children: [
           // Background Gradient / Glow Parallax effect relative
           Positioned(
-            top: -100,
-            left: -100,
+            top: -100.h,
+            left: -100.w,
             child: Container(
-              width: isMobile ? 300 : 400,
-              height: isMobile ? 300 : 400,
+              width: (isMobile ? 300 : 400).w,
+              height: (isMobile ? 300 : 400).w,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: AppColors.primary,
@@ -49,27 +50,27 @@ class HeroSection extends StatelessWidget {
                       'Hello, I am Bhuvaneshwaran.',
                       style: AppTextStyles.headingSmall.copyWith(
                         color: AppColors.primary,
-                        fontSize: isMobile ? 18 : 24,
+                        fontSize: isMobile ? 18.sp : 24.sp,
                       ),
                     ).animate().fade(duration: 500.ms).slideY(begin: 0.3),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Text(
                       'Flutter Developer.\nAPI Builder.\nSystem Thinker.',
                       style: (isMobile ? AppTextStyles.headingMedium : AppTextStyles.headingLarge).copyWith(
                         height: 1.1,
                       ),
                     ).animate(delay: 300.ms).fade(duration: 800.ms).slideX(begin: -0.2),
-                    const SizedBox(height: 30),
+                    SizedBox(height: 30.h),
                     Text(
                       'I build scalable apps, systems, and digital experiences.',
                       style: AppTextStyles.bodyLarge.copyWith(
-                        fontSize: isMobile ? 16 : 18,
+                        fontSize: isMobile ? 16.sp : 18.sp,
                       ),
                     ).animate(delay: 600.ms).fade().slideY(begin: 0.2),
-                    const SizedBox(height: 40),
+                    SizedBox(height: 40.h),
                     Wrap(
-                      spacing: 20,
-                      runSpacing: 20,
+                      spacing: 20.w,
+                      runSpacing: 20.h,
                       children: [
                         ElevatedButton(
                           onPressed: () {},
@@ -80,7 +81,7 @@ class HeroSection extends StatelessWidget {
                           style: OutlinedButton.styleFrom(
                             foregroundColor: AppColors.secondary,
                             side: const BorderSide(color: AppColors.secondary),
-                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
                             textStyle: AppTextStyles.button,
                           ),
                           child: const Text('Contact Me'),
@@ -96,7 +97,7 @@ class HeroSection extends StatelessWidget {
                   child: Center(
                     child: Image.asset(
                       'assets/images/skill_1.png',
-                      width: 500,
+                      width: 500.w,
                       fit: BoxFit.contain,
                     )
                     .animate(onPlay: (controller) => controller.repeat(reverse: true))

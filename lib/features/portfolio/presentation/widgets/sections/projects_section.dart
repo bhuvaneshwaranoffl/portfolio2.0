@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_text_styles.dart';
 import 'package:portfolio/features/portfolio/domain/entities/project.dart';
@@ -12,31 +13,31 @@ class ProjectsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 20), // Reduced mobile padding
+      padding: EdgeInsets.symmetric(vertical: 100.h, horizontal: 20.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 20),
+            padding: EdgeInsets.only(left: 20.w),
             child: Text(
               'Featured Projects',
               style: AppTextStyles.headingMedium.copyWith(color: AppColors.primary),
             ).animate().fade().slideY(),
           ),
-          const SizedBox(height: 60),
+          SizedBox(height: 60.h),
           LayoutBuilder(
             builder: (context, constraints) {
               int columns = constraints.maxWidth > 900 ? 3 : (constraints.maxWidth > 650 ? 2 : 1);
               return GridView.builder(
                 shrinkWrap: true,
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: projects.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: columns,
-                  mainAxisSpacing: 30,
-                  crossAxisSpacing: 30,
-                  mainAxisExtent: 500, // Fixed height avoids all overflow issues
+                  mainAxisSpacing: 30.h,
+                  crossAxisSpacing: 30.w,
+                  mainAxisExtent: 520.h, // Fixed relative height
                 ),
                 itemBuilder: (context, index) {
                   return _ProjectCard(project: projects[index]);
@@ -71,7 +72,7 @@ class _ProjectCardState extends State<_ProjectCard> {
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
           color: AppColors.surface,
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.r),
           border: Border.all(
             color: _isHovered ? AppColors.primary : AppColors.borderColor,
             width: _isHovered ? 2 : 1,
@@ -80,8 +81,8 @@ class _ProjectCardState extends State<_ProjectCard> {
               ? [
                   BoxShadow(
                     color: AppColors.primary.withOpacity(0.3),
-                    spreadRadius: 2,
-                    blurRadius: 15,
+                    spreadRadius: 2.r,
+                    blurRadius: 15.r,
                   )
                 ]
               : [],
@@ -102,7 +103,7 @@ class _ProjectCardState extends State<_ProjectCard> {
             Expanded(
               flex: 4,
               child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.all(20.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -110,7 +111,7 @@ class _ProjectCardState extends State<_ProjectCard> {
                       widget.project.title,
                       style: AppTextStyles.headingSmall,
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     Expanded(
                       child: Text(
                         widget.project.description,
@@ -118,16 +119,16 @@ class _ProjectCardState extends State<_ProjectCard> {
                         overflow: TextOverflow.fade,
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
                     Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
+                      spacing: 8.w,
+                      runSpacing: 8.h,
                       children: widget.project.techStack.map((tech) {
                         return Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
                           decoration: BoxDecoration(
                             color: AppColors.secondary.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(20.r),
                             border: Border.all(color: AppColors.secondary.withOpacity(0.5)),
                           ),
                           child: Text(

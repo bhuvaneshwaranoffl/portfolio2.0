@@ -9,6 +9,7 @@ import 'package:portfolio/features/portfolio/presentation/widgets/sections/about
 import 'package:portfolio/features/portfolio/presentation/widgets/sections/contact_section.dart';
 import 'package:portfolio/features/portfolio/presentation/widgets/sections/experience_section.dart';
 import 'package:portfolio/features/portfolio/presentation/widgets/sections/hero_section.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/features/portfolio/presentation/widgets/sections/projects_section.dart';
 import 'package:portfolio/features/portfolio/presentation/widgets/sections/skills_section.dart';
 
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
       endDrawer: Drawer(
         backgroundColor: AppColors.background.withOpacity(0.95),
         child: ListView(
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+          padding: EdgeInsets.symmetric(vertical: 50.h, horizontal: 20.w),
           children: sectionKeys.keys.map((String title) {
             return ListTile(
               title: Text(title, style: AppTextStyles.headingSmall),

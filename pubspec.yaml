@@ -42,6 +42,7 @@ dependencies:
   font_awesome_flutter: ^11.0.0
   equatable: ^2.0.8
   responsive_builder: ^0.7.1
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:
