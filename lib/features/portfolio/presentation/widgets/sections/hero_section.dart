@@ -95,14 +95,36 @@ class HeroSection extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: Center(
-                    child: Image.asset(
-                      'assets/images/skill_1.png',
-                      width: 500.w,
-                      fit: BoxFit.contain,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.secondary.withOpacity(0.3),
+                            blurRadius: 100.r,
+                            spreadRadius: 10.r,
+                          )
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(500.r), // Circle Avatar mask
+                        child: Image.asset(
+                          'assets/images/me.png',
+                          width: 450.w,
+                          height: 450.w,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) => Image.asset(
+                            'assets/images/skill_1.png', // Dynamic Fallback if missing
+                            width: 450.w,
+                            height: 450.w,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
                     )
                     .animate(onPlay: (controller) => controller.repeat(reverse: true))
                     .fade(duration: 1.seconds)
-                    .slideY(begin: -0.05, end: 0.05, curve: Curves.easeInOut, duration: 3.seconds),
+                    .slideY(begin: -0.02, end: 0.02, curve: Curves.easeInOut, duration: 4.seconds),
                   ),
                 ),
             ],

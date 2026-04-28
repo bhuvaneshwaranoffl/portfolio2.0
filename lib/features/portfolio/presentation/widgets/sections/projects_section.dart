@@ -70,6 +70,7 @@ class _ProjectCardState extends State<_ProjectCard> {
       onExit: (_) => setState(() => _isHovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
+        transform: Matrix4.identity()..translate(0.0, _isHovered ? -15.0 : 0.0),
         decoration: BoxDecoration(
           color: AppColors.surface,
           borderRadius: BorderRadius.circular(16.r),

@@ -95,27 +95,25 @@ class _HomePageState extends State<HomePage> {
                 ),
                 
                 // Foreground content
-                SingleChildScrollView(
+                ListView(
                   controller: _scrollController,
-                  child: Column(
-                    children: [
-                      HeroSection(key: sectionKeys['Home']),
-                      AboutSection(key: sectionKeys['About']),
-                      SkillsSection(
-                        key: sectionKeys['Skills'],
-                        skills: state.skills,
-                      ),
-                      ProjectsSection(
-                        key: sectionKeys['Projects'],
-                        projects: state.projects,
-                      ),
-                      ExperienceSection(
-                        key: sectionKeys['Experience'],
-                        experiences: state.experiences,
-                      ),
-                      ContactSection(key: sectionKeys['Contact']),
-                    ],
-                  ),
+                  children: [
+                    HeroSection(key: sectionKeys['Home']),
+                    AboutSection(key: sectionKeys['About']),
+                    SkillsSection(
+                      key: sectionKeys['Skills'],
+                      skills: state.skills,
+                    ),
+                    ProjectsSection(
+                      key: sectionKeys['Projects'],
+                      projects: state.projects,
+                    ),
+                    ExperienceSection(
+                      key: sectionKeys['Experience'],
+                      experiences: state.experiences,
+                    ),
+                    ContactSection(key: sectionKeys['Contact']),
+                  ],
                 ),
                 
                 // Sticky Nav Bar
